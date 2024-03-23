@@ -1,0 +1,34 @@
+<div class="main_content">
+  <div class="top_side">
+    <img src="/assets/aven_logo.png" alt="" />
+    <p>Login into your account</p>
+  </div>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="email">
+      <p>Email id:</p>
+      <input
+        type="text"
+        placeholder="info@provistechnologies.com"
+        name="username"
+      />
+    </div>
+    <div class="password">
+      <p>Password</p>
+      <input
+        type="password"
+        placeholder="Enter your password"
+        name="password"
+      />
+    </div>
+
+    <a href="" id="password_reset">Forgot Password? </a>
+    <button type="submit" id="login_btn">Login now</button>
+    <div class="or">
+      <hr />
+      <p>Or</p>
+      <hr />
+    </div>
+    <button id="signup_btn" routerLink="/signup">Signup now</button>
+  </form>
+</div>
