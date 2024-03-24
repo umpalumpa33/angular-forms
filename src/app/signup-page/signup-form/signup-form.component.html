@@ -1,1 +1,147 @@
-<p>signup-form works!</p>
+<div class="signup_form">
+  <div class="icon">
+    <img src="/assets/aven_logo.png" alt="" />
+    <p>Sign up into your account</p>
+  </div>
+  <form [formGroup]="signUpForm" (ngSubmit)="onFormSubmit()">
+    <div class="row_1">
+      <div class="first_name">
+        <p>First Name:</p>
+        <input
+          id="first-name"
+          type="text"
+          formControlName="firstName"
+          placeholder="Enter your name"
+        />
+        <div
+          class="errors"
+          *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)"
+        >
+          <p *ngIf="firstName?.errors?.['required']">Name is required</p>
+          <p *ngIf="firstName?.errors?.['minlength']">
+            Name must be at least 3 characters
+          </p>
+          <p *ngIf="firstName?.errors?.['maxlength']">
+            Name must be less than 17 characters long
+          </p>
+        </div>
+      </div>
+      <div class="last_name">
+        <p>Last Name :</p>
+        <input
+          id="lastName"
+          type="text"
+          formControlName="lastName"
+          placeholder="Enter your name.."
+        />
+        <div
+          class="errors"
+          *ngIf="(lastName?.invalid && lastName?.touched) || lastName?.dirty"
+        >
+          <p *ngIf="lastName?.errors?.['required']">Last name is required</p>
+          <p *ngIf="lastName?.errors?.['minlength']">
+            Last name must be at least 3 characters
+          </p>
+          <p *ngIf="lastName?.errors?.['maxlength']">
+            Last nam e must be less than 17 characters long
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row_2">
+      <div class="email">
+        <label for="emailAdress">Email Id : </label>
+        <input
+          id="emailAdress"
+          type="email"
+          formControlName="email"
+          placeholder="info@xyz.com"
+        />
+        <p class="error" *ngIf="email?.invalid && email?.errors?.['email']">
+          This is not email format
+        </p>
+      </div>
+      <div class="phone">
+        <label for="phonenumber">Mobile</label>
+        <input
+          id="phonenumber"
+          type="number"
+          formControlName="mobile"
+          placeholder="+995 555-555-555"
+        />
+        <div
+          class="errors"
+          *ngIf="(mobile?.invalid && mobile?.touched) || mobile?.dirty"
+        >
+          <p *ngIf="mobile?.errors?.['required']">phone number is required</p>
+          <p *ngIf="mobile?.errors?.['pattern']">should match pattern</p>
+        </div>
+      </div>
+    </div>
+    <div class="row_3">
+      <div class="password">
+        <label for="passwords">Password : </label>
+        <input
+          id="passwords"
+          type="password"
+          formControlName="password"
+          placeholder="xxxxxxxxxx"
+        />
+        <div class="errors" *ngIf="password?.invalid && password?.touched">
+          <p *ngIf="password?.errors?.['required']">password is required</p>
+          <p *ngIf="password?.errors?.['minlength']">
+            password min length should be 6
+          </p>
+          <p *ngIf="password?.errors?.['pattern']">
+            password doesnt match pattern(it needs symbols)
+          </p>
+        </div>
+      </div>
+      <div class="confirm_password">
+        <label for="confirmPassword">Confirm Password : </label>
+        <input
+          id="confirmPassword"
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="xxxxxxxxxx"
+        />
+        <div class="errors" *ngIf="password?.invalid && password?.touched">
+          <p
+            *ngIf="signUpForm?.invalid && signUpForm?.errors?.['doesntMatch']"
+            class="errors"
+          >
+            passwords should match
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row_4">
+      <div class="company">
+        <label for="CompanyName">Company Name : </label>
+        <input
+          id="CompanyName"
+          type="text"
+          formControlName="companyName"
+          placeholder="Enter company name ..."
+        />
+        <p
+          class="errors"
+          *ngIf="companyName?.touched && companyName?.invalid && companyName?.errors?.['required']"
+        >
+          Company name is required
+        </p>
+      </div>
+    </div>
+    <button
+      type="submit"
+      value="SUBMIT"
+      clic="onFormSubmit()"
+      [disabled]="!signUpForm.valid"
+      (click)="onFormSubmit()"
+      [ngStyle]="{ cursor: isFormValid() ? 'not-allowed' : 'pointer' }"
+    >
+      Sign up
+    </button>
+  </form>
+</div>

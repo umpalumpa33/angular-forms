@@ -28,7 +28,7 @@ form input {
 }
 
 input {
-  padding-left: 15px;
+  padding: 25px 0px 25px 15px;
   border: 1px solid #eeeeee;
   background-color: #eeeeee;
   border-radius: 8.08px;
@@ -69,4 +69,8 @@ input {
   border: 1px solid #1e2772;
   border-radius: 8.08px;
   box-shadow: 0px 12.116715431213379px 24.233430862426758px 0px #010bfd1f;
+}
+
+button:hover {
+  cursor: pointer;
 }

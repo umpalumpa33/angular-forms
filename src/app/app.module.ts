@@ -9,6 +9,7 @@ import { LoginBackgroundComponent } from './login-page/login-background/login-ba
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { SignupBackgroundComponent } from './signup-page/signup-background/signup-background.component';
 import { SignupFormComponent } from './signup-page/signup-form/signup-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,11 @@ import { SignupFormComponent } from './signup-page/signup-form/signup-form.compo
     LoginBackgroundComponent,
     SignupPageComponent,
     SignupBackgroundComponent,
-    SignupFormComponent
-  ],
+    SignupFormComponent  ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
