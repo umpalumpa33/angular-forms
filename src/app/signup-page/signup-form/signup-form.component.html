@@ -76,7 +76,7 @@
           id="phonenumber"
           type="number"
           formControlName="mobile"
-          placeholder="+995 555-555-555"
+          placeholder="+995-555-555-555"
           [ngClass]="{
             'invalid-input': mobile?.invalid && mobile?.touched
           }"
@@ -108,7 +108,7 @@
             password min length should be 6
           </p>
           <p *ngIf="password?.errors?.['pattern']">
-            password doesnt match pattern(it needs symbols)
+            password doesnt match pattern(it needs symbols and capital letter)
           </p>
         </div>
       </div>
@@ -119,13 +119,17 @@
           type="password"
           formControlName="confirmPassword"
           placeholder="xxxxxxxxxx"
+          [ngClass]="{
+            'invalid-input':
+              confirmPassword?.invalid && confirmPassword?.touched
+          }"
         />
-        <div class="errors" *ngIf="password?.invalid && password?.touched">
-          <p
-            *ngIf="signUpForm?.invalid && signUpForm?.errors?.['doesntMatch']"
-            class="errors"
-          >
-            passwords should match
+        <div
+          class="errors"
+          *ngIf="confirmPassword?.invalid && confirmPassword?.touched"
+        >
+          <p *ngIf="confirmPassword?.errors?.['PasswordNoMatch']">
+            passwords don't match
           </p>
         </div>
       </div>
@@ -155,7 +159,7 @@
       type="submit"
       value="SUBMIT"
       clic="onFormSubmit()"
-      [disabled]="!signUpForm.valid"
+      [disabled]="signUpForm.invalid"
       (click)="onFormSubmit()"
       [ngStyle]="{ cursor: isFormValid() ? 'not-allowed' : 'pointer' }"
     >
