@@ -8,10 +8,13 @@
       <div class="first_name">
         <p>First Name:</p>
         <input
-          id="first-name"
+          id="first_name"
           type="text"
           formControlName="firstName"
           placeholder="Enter your name"
+          [ngClass]="{
+            'invalid-input': firstName?.invalid && firstName?.touched
+          }"
         />
         <div
           class="errors"
@@ -33,6 +36,9 @@
           type="text"
           formControlName="lastName"
           placeholder="Enter your name.."
+          [ngClass]="{
+            'invalid-input': lastName?.invalid && lastName?.touched
+          }"
         />
         <div
           class="errors"
@@ -56,6 +62,9 @@
           type="email"
           formControlName="email"
           placeholder="info@xyz.com"
+          [ngClass]="{
+            'invalid-input': email?.invalid && email?.touched
+          }"
         />
         <p class="error" *ngIf="email?.invalid && email?.errors?.['email']">
           This is not email format
@@ -68,6 +77,9 @@
           type="number"
           formControlName="mobile"
           placeholder="+995 555-555-555"
+          [ngClass]="{
+            'invalid-input': mobile?.invalid && mobile?.touched
+          }"
         />
         <div
           class="errors"
@@ -86,6 +98,9 @@
           type="password"
           formControlName="password"
           placeholder="xxxxxxxxxx"
+          [ngClass]="{
+            'invalid-input': password?.invalid && password?.touched
+          }"
         />
         <div class="errors" *ngIf="password?.invalid && password?.touched">
           <p *ngIf="password?.errors?.['required']">password is required</p>
@@ -124,6 +139,9 @@
           type="text"
           formControlName="companyName"
           placeholder="Enter company name ..."
+          [ngClass]="{
+            'invalid-input': companyName?.invalid && companyName?.touched
+          }"
         />
         <p
           class="errors"

@@ -35,6 +35,15 @@ form {
   padding: 0px 10px;
 }
 
+.invalid-input {
+  border: 1px solid red !important;
+}
+
+.invalid-input:focus {
+  border: 1px solid red !important;
+  outline: none;
+}
+
 .signup_form button {
   align-self: flex-start;
   background: #1e2772;

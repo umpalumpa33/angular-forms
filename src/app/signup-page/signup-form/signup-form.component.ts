@@ -16,6 +16,7 @@ export class SignupFormComponent implements OnInit {
 
   signUpForm: FormGroup;
   isButtonActive: boolean = false;
+confirmPassword: any;
   constructor(private sf: FormBuilder, private router: Router) {
     this.signUpForm = this.sf.group(
       {
@@ -47,10 +48,7 @@ export class SignupFormComponent implements OnInit {
             ),
           ],
         ],
-        confirmPassword: ['',
-      [
-        
-      ]],
+        confirmPassword: ['', Validators.required],
         companyName: ['', Validators.required],
       },
       {
@@ -59,6 +57,8 @@ export class SignupFormComponent implements OnInit {
     );
   }
   ngOnInit(): void {}
+
+  get f() { return this.signUpForm.controls; }
 
   get firstName() {
     return this.signUpForm.get('firstName');
